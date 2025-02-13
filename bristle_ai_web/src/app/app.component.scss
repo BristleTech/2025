@@ -1,105 +1,148 @@
+/* Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", system-ui, sans-serif;
+}
+
 .main-container {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Animated Background */
+.animated-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(-45deg, #0f0c29, #302b63, #24243e);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+  z-index: -1;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
   }
-  
-  .header {
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Navigation Styles */
+.nav-container {
+  padding: 1.5rem 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+
+  .brand {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 1rem 5%;
-    position: relative;
-    z-index: 2;
-    background: rgba(255, 255, 255, 0.9);
-  
-    .brand {
-      display: flex;
-      align-items: center;
-      
-      .logo {
-        width: 50px;
-        height: 50px;
-        margin-right: 1rem;
-      }
+    gap: 1rem;
+
+    .logo {
+      width: 50px;
+      height: 50px;
+      filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
     }
-  }
-  
-  .nav-menu ul {
-    display: flex;
-    list-style: none;
-    gap: 2rem;
-    
-    li {
-      cursor: pointer;
-      padding: 0.5rem 1rem;
-      transition: all 0.3s ease;
-      
-      &:hover {
-        background: #007bff;
-        color: white;
-        border-radius: 4px;
-      }
-    }
-  }
-  
-  .animated-background {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-    background-size: 400% 400%;
-    animation: gradient 15s ease infinite;
-    z-index: 1;
-  }
-  
-  @keyframes gradient {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-  }
-  
-  .content-area {
-    position: relative;
-    z-index: 2;
-    flex: 1;
-    padding: 2rem 5%;
-    background: rgba(255, 255, 255, 0.9);
-    margin: 2rem 5%;
-    border-radius: 10px;
-  }
-  
-  /* Mobile Responsive */
-  @media (max-width: 768px) {
-    .header {
-      flex-direction: column;
-      
-      .brand {
-        margin-bottom: 1rem;
-      }
-    }
-  
-    .nav-menu ul {
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1rem;
-    }
-  
-    .content-area {
-      margin: 1rem;
-      padding: 1rem;
-    }
-  }
-  
-  @media (max-width: 480px) {
-    .nav-menu ul li {
-      font-size: 0.9rem;
-      padding: 0.3rem 0.5rem;
-    }
-    
+
     .brand-name {
-      font-size: 1.5rem;
+      color: #fff;
+      font-size: 1.8rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
     }
   }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+
+    .nav-link {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      position: relative;
+      padding: 0.5rem 0;
+      transition: all 0.3s ease;
+
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: #00ffff;
+        transition: width 0.3s ease;
+      }
+
+      &:hover::after {
+        width: 100%;
+      }
+    }
+  }
+
+  .hamburger {
+    display: none;
+    cursor: pointer;
+    .line {
+      width: 25px;
+      height: 2px;
+      background: #fff;
+      margin: 5px;
+      transition: all 0.3s ease;
+    }
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .nav-container {
+    .nav-links {
+      position: fixed;
+      right: -100%;
+      top: 70px;
+      height: calc(100vh - 70px);
+      width: 100%;
+      background: rgba(0, 0, 0, 0.9);
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem;
+      transition: right 0.3s ease;
+
+      &.active {
+        right: 0;
+      }
+    }
+
+    .hamburger {
+      display: block;
+    }
+  }
+}
+
+.content-wrapper {
+  padding-top: 100px;
+  min-height: calc(100vh - 200px);
+}
+
+.footer-container {
+  background: rgba(0, 0, 0, 0.8);
+  padding: 2rem 5%;
+  margin-top: auto;
+}

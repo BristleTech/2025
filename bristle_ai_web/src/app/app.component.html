@@ -1,34 +1,36 @@
 <div class="main-container">
-  <!-- Header with Navigation -->
-  <header class="header">
-    <div class="brand">
-      <img src="assets/logo.png" alt="AI Marketing Logo" class="logo">
-      <h1 class="brand-name">AI Marketing Pro</h1>
-    </div>
-    <nav class="nav-menu">
-      <ul>
-        <li (click)="activeComponent = 'home'">Home</li>
-        <li (click)="activeComponent = 'services'">Services</li>
-        <li (click)="activeComponent = 'how-we-work'">How We Work</li>
-        <li (click)="activeComponent = 'partners'">Partners</li>
-        <li (click)="activeComponent = 'contact-us'">Contact</li>
-      </ul>
-    </nav>
-  </header>
-
   <!-- Animated Background -->
   <div class="animated-background"></div>
 
-  <!-- Main Content Area -->
-  <main class="content-area">
-    <app-home ></app-home>
-    <app-services ></app-services>
-    <app-how-we-work ></app-how-we-work>
-    <app-partners ></app-partners>
-  </main>
+  <!-- Navigation -->
+  <nav class="nav-container" [class.active]="isMenuOpen">
+    <div class="brand">
+      <img src="assets/BT N" alt="AI Marketing Pro" class="logo">
+      <h1 class="brand-name">BristleTech</h1>
+    </div>
 
-  <!-- Footer with Contact Component -->
-  <footer class="footer">
+    <div class="hamburger" (click)="toggleMenu()">
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+    </div>
+
+    <ul class="nav-links">
+      <li><a routerLink="/" class="nav-link">Home</a></li>
+      <li><a routerLink="/services" class="nav-link">Services</a></li>
+      <li><a routerLink="/how-we-work" class="nav-link">How We Work</a></li>
+      <li><a routerLink="/partners" class="nav-link">Partners</a></li>
+      <li><a routerLink="/contact" class="nav-link">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="content-wrapper">
+    <router-outlet></router-outlet>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer-container">
     <app-contact-us></app-contact-us>
   </footer>
 </div>
