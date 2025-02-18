@@ -1,0 +1,46 @@
+.about-section {
+  padding: 4rem 2rem;
+  color: white;
+
+  .grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .left-panel {
+    h3 {
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    p {
+      font-size: 1.2rem;
+      line-height: 1.6;
+    }
+  }
+
+  .stats-container {
+    display: grid;
+    gap: 2rem;
+
+    .stat-item {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 2rem;
+      border-radius: 10px;
+      text-align: center;
+
+      .stat-number {
+        font-size: 3rem;
+        font-weight: bold;
+        color: #00ffff;
+      }
+    }
+  }
+}

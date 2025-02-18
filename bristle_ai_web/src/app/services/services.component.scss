@@ -1,0 +1,23 @@
+.services-section {
+  padding: 4rem 2rem;
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .service-card {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 2rem;
+    border-radius: 15px;
+    
+
+    .card-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+  }
+}

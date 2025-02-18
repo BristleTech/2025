@@ -9,7 +9,7 @@
       <h1 class="brand-name">BristleTech</h1>
     </div>
 
-    <div class="hamburger" (click)="toggleMenu()">
+    <div class="hamburger" >
       <div class="line"></div>
       <div class="line"></div>
       <div class="line"></div>
@@ -20,7 +20,7 @@
       <li><a routerLink="/services" class="nav-link">Services</a></li>
       <li><a routerLink="/how-we-work" class="nav-link">How We Work</a></li>
       <li><a routerLink="/partners" class="nav-link">Partners</a></li>
-      <li><a routerLink="/contact" class="nav-link">Contact</a></li>
+      <li><a routerLink="/aboutus" class="nav-link">About Us</a></li>
     </ul>
   </nav>
 
@@ -28,6 +28,9 @@
   <div class="content-wrapper">
     <router-outlet></router-outlet>
   </div>
+  
+<!-- Update background binding -->
+  <div class="animated-background" [class]="currentBg"></div>
 
   <!-- Footer -->
   <footer class="footer-container">
