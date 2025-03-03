@@ -1,0 +1,36 @@
+.slider {
+    width: 100vw; /* Full width of the viewport */
+    height: 100vh; /* Full height of the viewport */
+    margin: 0; /* Remove any margin */
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 100%; /* Adjust based on the number of images */
+    height: 100%;
+  }
+  
+  .slides img {
+    width: 100vw; /* Full width of the viewport */
+    height: 100vh; /* Full height of the viewport */
+    flex-shrink: 0;
+    object-fit: cover; /* Ensure images cover the container */
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 768px) {
+    .slider {
+      width: 100vw; /* Full width of the viewport */
+      height: 100vh; /* Full height of the viewport */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .slider {
+      width: 100vw; /* Full width of the viewport */
+      height: 100vh; /* Full height of the viewport */
+    }
+  }

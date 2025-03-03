@@ -8,7 +8,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { Router, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
-
+import { SliderComponent } from './home/slider/slider.component';
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -21,10 +21,12 @@ import { filter } from 'rxjs/operators';
     ServicesComponent,
     CommonModule,
     RouterModule,
+    SliderComponent,
   ],
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
+  title = 'bristle_ai_web';
   activeComponent: string = 'home';
   isMenuOpen = false;
   currentBg = 'gradient-1';
